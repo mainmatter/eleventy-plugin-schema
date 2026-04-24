@@ -1,14 +1,19 @@
+import event from "./event.js";
+import product from "./product.js";
+import service from "./service.js";
+
 /**
  * Offer structured data. See https://schema.org/Offer.
  *
  * @param {Object} offer Offer properties.
  * @param {String} offer.priceCurrency The currency of the price.
- * @param {String} offer.price The offer price of a product.
+ * @param {String} offer.price The offer's price.
  * @param {String} offer.priceValidUntil The date when price ends.
  * @param {String} offer.availability The availability. In stock, etc.
  * @param {String} offer.availabilityStarts The beginning of availability.
  * @param {String} offer.availabilityEnds The end of the availability.
- * @param {String} offer.itemCondition The condition of the product.
+ * @param {String} offer.itemOffered The offered item.
+ * @param {String} offer.itemCondition The condition of the offered item.
  * @returns {Object|undefined}
  */
 export default (data) => {
@@ -54,6 +59,18 @@ export default (data) => {
 
   if (data.itemCondition) {
     offer.itemCondition = data.itemCondition;
+  }
+
+  if (data.itemOffered) {
+    if (data.itemOffered.type === "event") {
+      offer.itemOffered = event({ meta: data.itemOffered });
+    }
+    if (data.itemOffered.type === "product") {
+      offer.itemOffered = product({ meta: data.itemOffered }, false);
+    }
+    if (data.itemOffered.type === "service") {
+      offer.itemOffered = service({ meta: data.itemOffered });
+    }
   }
 
   return offer;

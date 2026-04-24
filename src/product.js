@@ -32,7 +32,7 @@ import review from "./review.js";
  * @param {String} param0.meta.identifier A identifier for the item.
  * @returns {Object}
  */
-export default ({ meta }) => {
+export default ({ meta }, isRoot = true) => {
   const product = {
     "@type": "Product",
     aggregateRating: rating(meta.rating),
@@ -42,11 +42,6 @@ export default ({ meta }) => {
     description: meta.description,
     image: meta.image.src,
     name: meta.name,
-
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": meta.url,
-    },
 
     gtin: meta.gtin,
     gtin12: meta.gtin12,
@@ -62,6 +57,13 @@ export default ({ meta }) => {
     category: meta.category,
     identifier: meta.identifier,
   };
+
+  if (isRoot) {
+    product.mainEntityOfPage = {
+      "@type": "WebPage",
+      "@id": meta.url,
+    };
+  }
 
   if (meta.brand) {
     product.brand = {
