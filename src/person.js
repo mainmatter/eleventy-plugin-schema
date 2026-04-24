@@ -21,10 +21,16 @@ const personFn = (person) => {
     return person.map(personFn);
   }
 
-  return {
+  const data = {
     "@type": "Person",
     name: person.name,
   };
+
+  if (person.description) {
+    data.description = person.description;
+  }
+
+  return data;
 };
 
 export default personFn;

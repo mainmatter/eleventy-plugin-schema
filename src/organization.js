@@ -63,5 +63,9 @@ export default ({ meta }) => {
     };
   }
 
+  if (meta.organization.employees) {
+    organization.employees = person(meta.organization.employees);
+  }
+
   return organization;
 };

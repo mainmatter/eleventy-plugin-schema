@@ -13,10 +13,11 @@ test("person string", (t) => {
 });
 
 test("person object", (t) => {
-  const personObject = { name: "John Doe" };
+  const personObject = { name: "John Doe", description: "coder" };
   const expected = {
     "@type": "Person",
     name: personObject.name,
+    description: personObject.description,
   };
 
   parsedEqual(t, person(personObject), expected);

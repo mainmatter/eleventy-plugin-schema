@@ -58,6 +58,8 @@ test("organization", (t) => {
 
       knowsAbout: ["topic A", "topic B"],
 
+      employees: [{ name: "Steve Jobs" }],
+
       sameAs: [
         "http://www.freebase.com/m/0_h96pq",
         "http://www.facebook.com/elitestrategies",
@@ -140,6 +142,13 @@ test("organization", (t) => {
         },
       ],
     },
+
+    employees: [
+      {
+        "@type": "Person",
+        name: "Steve Jobs",
+      },
+    ],
 
     knowsAbout: ["topic A", "topic B"],
 
