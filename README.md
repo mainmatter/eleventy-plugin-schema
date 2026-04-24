@@ -32,7 +32,7 @@ Add the plugin to your Eleventy configuration.
 // eleventy.config.js
 import schema from "@quasibit/eleventy-plugin-schema";
 
-export default function(eleventyConfig) {
+export default function (eleventyConfig) {
   eleventyConfig.addPlugin(schema);
 }
 ```
@@ -43,7 +43,7 @@ export default function(eleventyConfig) {
 // .eleventy.js
 const schema = require("@quasibit/eleventy-plugin-schema");
 
-module.exports = function(eleventyConfig) {
+module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(schema);
 };
 ```
@@ -51,8 +51,9 @@ module.exports = function(eleventyConfig) {
 ## Introduction
 
 The plugin adds two shortcodes to generate the JSON-LD script:
-  - `jsonLdScript` (includes the `<script>` tag)
-  - `jsonLd` (just JSON-LD without the `<script>` tag)
+
+- `jsonLdScript` (includes the `<script>` tag)
+- `jsonLd` (just JSON-LD without the `<script>` tag)
 
 The shortcodes support the following schema types:
 
@@ -85,11 +86,13 @@ If you already have the value in other properties, you can use
 Call the shortcode where you want the script to be displayed:
 
 **Nunjucks:**
+
 ```njk
 {% jsonLdScript meta, type, tags %}
 ```
 
 **Liquid:**
+
 ```liquid
 {% jsonLdScript meta type tags %}
 ```
@@ -97,11 +100,13 @@ Call the shortcode where you want the script to be displayed:
 And if you don't want the `<script>` tag, then use this instead:
 
 **Nunjucks:**
+
 ```njk
 {% jsonLd meta, type, tags %}
 ```
 
 **Liquid:**
+
 ```liquid
 {% jsonLd meta type tags %}
 ```

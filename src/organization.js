@@ -1,6 +1,7 @@
 import postalAddress from "./postalAddress.js";
 import contactPoint from "./contactPoint.js";
 import image from "./image.js";
+import offer from "./offer.js";
 import person from "./person.js";
 
 /**
@@ -32,7 +33,7 @@ export default ({ meta }) => {
     return;
   }
 
-  return {
+  const organization = {
     "@type": "Organization",
     "@id": `${meta.organization.url}#organization`,
     name: meta.organization.name,
@@ -47,4 +48,16 @@ export default ({ meta }) => {
     founders: person(meta.organization.founders),
     sameAs: meta.organization.sameAs,
   };
+
+  if (meta.organization.offerCatalog) {
+    organization.hasOfferCatalog = {
+      "@type": "OfferCatalog",
+      name: meta.organization.offerCatalog.name,
+      itemListElement: meta.organization.offerCatalog.offers.map((o) =>
+        offer(o),
+      ),
+    };
+  }
+
+  return organization;
 };

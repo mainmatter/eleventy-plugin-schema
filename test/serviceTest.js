@@ -44,37 +44,34 @@ test("service_with_offers_rating_reviews", (t) => {
   };
 
   const expected = {
-    '@type': 'Service',
+    "@type": "Service",
     aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingCount: '127',
-      ratingValue: '4.9',
+      "@type": "AggregateRating",
+      ratingCount: "127",
+      ratingValue: "4.9",
     },
-    areaServed: [
-      'US',
-      'CA',
-    ],
-    name: 'SEO Consulting',
+    areaServed: ["US", "CA"],
+    name: "SEO Consulting",
     offers: {
-      '@type': 'Offer',
-      price: '299',
-      priceCurrency: 'USD',
+      "@type": "Offer",
+      price: "299",
+      priceCurrency: "USD",
     },
     review: [
       {
-        '@type': 'Review',
+        "@type": "Review",
         author: {
-          '@type': 'Person',
-          name: 'Jane Doe',
+          "@type": "Person",
+          name: "Jane Doe",
         },
-        name: 'Outstanding results',
-        reviewBody: 'Traffic increased significantly in three months.',
+        name: "Outstanding results",
+        reviewBody: "Traffic increased significantly in three months.",
         reviewRating: {
-          '@type': 'Rating',
+          "@type": "Rating",
           ratingValue: 5,
         },
       },
-    ]
+    ],
   };
 
   parsedEqual(t, service({ meta }), expected);

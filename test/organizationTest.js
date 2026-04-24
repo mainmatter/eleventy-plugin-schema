@@ -47,6 +47,15 @@ test("organization", (t) => {
         },
       ],
 
+      offerCatalog: {
+        name: "offers",
+        offers: [
+          {
+            url: "https://some.url",
+          },
+        ],
+      },
+
       sameAs: [
         "http://www.freebase.com/m/0_h96pq",
         "http://www.facebook.com/elitestrategies",
@@ -118,6 +127,17 @@ test("organization", (t) => {
         areaServed: meta.organization.contactPoint[3].areaServed,
       },
     ],
+
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "offers",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          url: "https://some.url",
+        },
+      ],
+    },
 
     sameAs: meta.organization.sameAs,
   };

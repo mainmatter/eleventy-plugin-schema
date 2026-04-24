@@ -23,6 +23,6 @@ export default ({ meta, type, tags = [] }) => {
       Array.isArray(value)
         ? value.filter((element) => element !== null && element !== undefined)
         : value,
-    spaces
+    spaces,
   );
 };

@@ -7,9 +7,9 @@ import jsonLd from "./src/jsonLd.js";
  */
 export default (eleventyConfig) => {
   eleventyConfig.addShortcode("jsonLdScript", (meta, type, tags) =>
-    script({ meta, type, tags })
+    script({ meta, type, tags }),
   );
   eleventyConfig.addShortcode("jsonLd", (meta, type, tags) =>
-    jsonLd({ meta, type, tags })
+    jsonLd({ meta, type, tags }),
   );
 };
