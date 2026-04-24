@@ -56,6 +56,8 @@ test("organization", (t) => {
         ],
       },
 
+      knowsAbout: ["topic A", "topic B"],
+
       sameAs: [
         "http://www.freebase.com/m/0_h96pq",
         "http://www.facebook.com/elitestrategies",
@@ -138,6 +140,8 @@ test("organization", (t) => {
         },
       ],
     },
+
+    knowsAbout: ["topic A", "topic B"],
 
     sameAs: meta.organization.sameAs,
   };

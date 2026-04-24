@@ -49,6 +49,10 @@ export default ({ meta }) => {
     sameAs: meta.organization.sameAs,
   };
 
+  if (meta.organization.knowsAbout) {
+    organization.knowsAbout = meta.organization.knowsAbout;
+  }
+
   if (meta.organization.offerCatalog) {
     organization.hasOfferCatalog = {
       "@type": "OfferCatalog",
