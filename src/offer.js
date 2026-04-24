@@ -11,50 +11,50 @@
  * @param {String} offer.itemCondition The condition of the product.
  * @returns {Object|undefined}
  */
-export default (offer) => {
-  if (!offer) {
+export default (data) => {
+  if (!data) {
     return;
   }
 
-  const productOffer = {
+  const offer = {
     "@type": "Offer",
   };
 
-  if (offer.url) {
-    productOffer.url = offer.url;
+  if (data.url) {
+    offer.url = data.url;
   }
 
-  if (offer.priceCurrency) {
-    productOffer.priceCurrency = offer.priceCurrency;
+  if (data.priceCurrency) {
+    offer.priceCurrency = data.priceCurrency;
   }
 
-  if (offer.price) {
-    productOffer.price = offer.price;
+  if (data.price) {
+    offer.price = data.price;
   }
 
-  if (offer.priceValidUntil) {
-    productOffer.priceValidUntil = offer.priceValidUntil;
+  if (data.priceValidUntil) {
+    offer.priceValidUntil = data.priceValidUntil;
   }
 
-  if (offer.availability) {
-    productOffer.availability = offer.availability;
+  if (data.availability) {
+    offer.availability = data.availability;
   }
 
-  if (offer.availabilityStarts) {
-    productOffer.availabilityStarts = offer.availabilityStarts;
+  if (data.availabilityStarts) {
+    offer.availabilityStarts = data.availabilityStarts;
   }
 
-  if (offer.availabilityEnds) {
-    productOffer.availabilityEnds = offer.availabilityEnds;
+  if (data.availabilityEnds) {
+    offer.availabilityEnds = data.availabilityEnds;
   }
 
-  if (offer.category) {
-    productOffer.category = offer.category;
+  if (data.category) {
+    offer.category = data.category;
   }
 
-  if (offer.itemCondition) {
-    productOffer.itemCondition = offer.itemCondition;
+  if (data.itemCondition) {
+    offer.itemCondition = data.itemCondition;
   }
 
-  return productOffer;
+  return offer;
 };
